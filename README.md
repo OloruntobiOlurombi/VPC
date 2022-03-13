@@ -234,5 +234,12 @@ main.tf
 
 ![image](https://user-images.githubusercontent.com/40290711/158042708-6aba2f9f-af7e-45e4-ac7f-265e9f321377.png)
 
+#### Step 27
+- Login into your AWS Console and click on the autoscaling EC2. Then copy the Public IPv4 address to your web browser:
+
+![image](https://user-images.githubusercontent.com/40290711/158042904-4c977784-c4b0-4e7b-aeb0-cac75423c670.png)
+
+
+
 
 #### The End
