@@ -26,4 +26,4 @@ workflows:
   my-workflow:
     jobs:
       - calling_pipelineID
-      - fail_jobs
+      - fail_job
