@@ -16,7 +16,14 @@ jobs:
     steps:
       -  print_pipeline_id   
 
+  fail_job: 
+    docker:
+      - image: circleci/node:13.8.0 
+    steps:
+      - run: echo "Just a fail job"     
+
 workflows:
   my-workflow:
     jobs:
       - calling_pipelineID
+      - fail_jobs
