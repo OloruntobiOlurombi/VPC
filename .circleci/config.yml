@@ -31,7 +31,7 @@ jobs:
   calling_pipelineURLID:
     executor: my-executor 
     steps: 
-      - print_pipeline_url
+      - print_pipeline_url:
           to: "Cheking to build on"
            
 
