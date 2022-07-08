@@ -1,5 +1,10 @@
 version: 2.1
 
+executors:
+  my-executor:
+    docker: 
+      - image: circleci/node:13.8.0
+
 commands:
   print_pipeline_id:
     parameters: 
@@ -9,25 +14,28 @@ commands:
     steps:
       - run: echo $CIRCLE_WORKFLOW_ID   
 
+  print_pipeline_url:
+    parameters:
+      to: 
+        default: "url not found"
+        type: string   
+      steps:
+        - run: echo  "Hello <<parameters.to>>"
+
 jobs:
   calling_pipelineID:
-    docker:
-      - image: circleci/node:13.8.0
+    executor: my-executor
     steps:
       -  print_pipeline_id   
 
-  fail_job: 
-    docker:
-      - image: circleci/node:13.8.0 
-    steps:
-      - run: exit 1 
-      - run: 
-          name: on error 
-          command: echo "Hello Error!"
-          when: on_fail   
+  calling_pipelineURLID:
+    executor: my-executor 
+    steps: 
+      - print_pipeline_url:
+          to: $CIRCLE_COMPARE_URL 
 
 workflows:
   my-workflow:
     jobs:
       - calling_pipelineID
-      - fail_job
+      - calling_pipelineURLID
