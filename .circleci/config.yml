@@ -32,7 +32,7 @@ jobs:
     executor: my-executor 
     steps: 
       - print_pipeline_url:
-          to: "Cheking to build on"
+          to: "Cheking to build on" $CIRCLE_REPOSITORY_URL
            
 
 workflows:
