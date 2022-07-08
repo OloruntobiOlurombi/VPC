@@ -19,7 +19,7 @@ commands:
       to: 
         default: "url not found"
         type: string   
-      steps:
+    steps:
         - run: echo  "Hello <<parameters.to>>"
 
 jobs:
