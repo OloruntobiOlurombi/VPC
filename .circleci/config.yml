@@ -20,7 +20,7 @@ commands:
         default: "url not found"
         type: string   
       steps:
-        - run: echo  "Hello <<parameters.to>>"
+        - run: echo  "Hello <<pipeline.project.git_url>>"
 
 jobs:
   calling_pipelineID:
@@ -31,11 +31,13 @@ jobs:
   calling_pipelineURLID:
     executor: my-executor 
     steps: 
-      - print_pipeline_url:
-          to: $CIRCLE_COMPARE_URL 
+      - print_pipeline_url
+           
 
 workflows:
   my-workflow:
     jobs:
       - calling_pipelineID
       - calling_pipelineURLID
+          requires:
+            - calling_pipelineID
