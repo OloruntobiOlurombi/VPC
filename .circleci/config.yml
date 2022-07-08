@@ -38,6 +38,6 @@ workflows:
   my-workflow:
     jobs:
       - calling_pipelineID
-      - calling_pipelineURLID
+      - calling_pipelineURLID:
           requires:
             - calling_pipelineID
